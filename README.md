@@ -139,7 +139,7 @@ These results supplement **Table 7** in the paper.
 The per‑threshold results provide a more nuanced view of modality contributions. RGB+IR achieves the highest AP50 (63.32%), AP55 (61.44%), AP60 (58.53%), and AP75 (40.50%), indicating that thermal information from IR effectively complements RGB texture for most targets. RGB+Depth shows a notable advantage at AP80 (30.50%), suggesting that geometric cues from Depth may offer benefits under stricter localization criteria. The tri‑modal configuration achieves the best results at AP65 (55.12%), AP70 (49.86%), AP85 (20.05%), AP90 (11.10%), and AP95 (3.31%). Overall, the tri-modal configuration achieves the highest mAP50‑95 (39.01%), indicating complementary benefits from the three modalities.
 
 
-### Hardware Deployment Cost Analysis
+### 💻 Hardware Deployment Cost Analysis
 
 
 We report the inference performance and hardware cost of MCF-Net under different platforms and input resolutions. We evaluate MCF-Net (Nano) and MCF-Net-S (Small) on an NVIDIA RTX 5880 Ada GPU and an Intel Core i9-14900K CPU with input sizes of 480×480, 640×640, and 960×960. At 640×640, MCF-Net (Nano) achieves 43.16 FPS with 22.09 ms inference latency, 8.18 MB model size, 8.96 GFLOPs, and 39.01 mAP50-95, while MCF-Net-S (Small) achieves 39.79 FPS and 39.57 mAP50-95 at the cost of 31.03 GFLOPs and 28.77 MB model size. The GPU is approximately 6.5× faster than the CPU for Nano and about 10× faster for Small at 640×640. Reducing the input to 480×480 improves speed but decreases mAP50-95 by about 2.8%, whereas increasing it to 960×960 substantially increases FLOPs and latency without improving accuracy, mainly because the models are trained with 640×640 inputs. Overall, Nano is more suitable for resource-constrained and latency-sensitive scenarios, while Small is preferable when higher accuracy is required and sufficient compute is available.
@@ -159,7 +159,7 @@ We report the inference performance and hardware cost of MCF-Net under different
 | MCF-Net-S (Small) | CPU (i9-14900K) | 640×640 | 4.14 | 240.41 | 0.94 | 31.03 | 28.77 | 1919 | 39.63 |
 | MCF-Net-S (Small) | CPU (i9-14900K) | 960×960 | 2.15 | 463.20 | 1.07 | 69.20 | 28.77 | 2819 | 38.91 |
 
-### Future Work on Edge Deployment
+### 📱 Future Work on Edge Deployment
 
 It should be noted that the platforms evaluated above are desktop-level GPU and CPU rather than strictly edge devices. Unfortunately, due to the characteristics of multi-modal data—specifically, the need for synchronized RGB, IR, and depth inputs—we currently lack accessible edge devices that support such synchronized multi-modal sensing. Therefore, the current results should not be interpreted as edge-deployment validation. Future work will focus on deploying MCF-Net on typical edge hardware and systematically investigating quantization, power consumption, memory bandwidth, and multi-sensor synchronization. 
 ## 📧 Contact
